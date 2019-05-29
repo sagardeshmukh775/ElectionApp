@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/addmisionform"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Addmition form"/>
+        <item
+            android:id="@+id/paitientRegister"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="patients List"/>
+        <item
+            android:id="@+id/reports"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Reports" />
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Log Out" />
+    </group>
+
+
+
+</menu>

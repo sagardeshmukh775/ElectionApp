@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "249052156361",
+    "firebase_url": "https://jagrutiapp.firebaseio.com",
+    "project_id": "jagrutiapp",
+    "storage_bucket": "jagrutiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249052156361:android:544667f196c31591",
+        "android_client_info": {
+          "package_name": "com.smartloan.smtrick.jagrutiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249052156361-kkscigfj1vgok9dr0ed5fmussgs0p00e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVckStdGWKe5QhN0LNyuNNULS7DJuRbIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249052156361-kkscigfj1vgok9dr0ed5fmussgs0p00e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
