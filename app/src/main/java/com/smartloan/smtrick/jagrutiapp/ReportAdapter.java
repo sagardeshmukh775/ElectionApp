@@ -1,12 +1,14 @@
 package com.smartloan.smtrick.jagrutiapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,20 +61,17 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
 
 
 
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Do on click stuff
 
+                Intent intent = new Intent(holder.cardView.getContext(),View_Patient_Report_Activity.class);
+                intent.putExtra("report",pveo);
+                holder.cardView.getContext().startActivity(intent);
 
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Do on click stuff
-//                Toast.makeText(holder.catalogname.getContext(), list.get(position), Toast.LENGTH_SHORT).show();
-//                String item = list.get(position).toString();
-//                Intent intent = new Intent(holder.catalogname.getContext(),SubCatalogActivity.class);
-//                intent.putExtra("itemName",item);
-//                holder.catalogname.getContext().startActivity(intent);
-//
-//            }
-//        });
+            }
+        });
 
         holder.cardView.setOnLongClickListener(new View.OnLongClickListener()
 

@@ -2,6 +2,7 @@ package com.smartloan.smtrick.jagrutiapp;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,13 +22,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
 import static com.smartloan.smtrick.jagrutiapp.Constants.CALANDER_DATE_FORMATE;
+import static com.smartloan.smtrick.jagrutiapp.Constants.GLOBAL_DATE_FORMATE;
 
 
 public class Fragment_Reports extends Fragment
@@ -44,7 +54,7 @@ public class Fragment_Reports extends Fragment
     ReportAdapter reportadapter;
     Reportmodel reportsmodel;
     ArrayList<Reportmodel> leedsModelArrayList;
-    Button total;
+    Button total, Excel;
    // int[] animationList = {R.anim.layout_animation_up_to_down};
     int i = 0;
 
@@ -64,6 +74,7 @@ public class Fragment_Reports extends Fragment
         edittexttodate = (EditText) view.findViewById(R.id.edittexttodate);
 
         total = (Button) view.findViewById(R.id.butonsubmit);
+        Excel = (Button) view.findViewById(R.id.butonXL);
         catalogList = new ArrayList<>();
         setFromDateClickListner();
         setToDateClickListner();
@@ -101,7 +112,59 @@ public class Fragment_Reports extends Fragment
         });
 
 
+        Excel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                File sd = Environment.getExternalStorageDirectory();
+                String csvFile = "myData.xls";
+
+                File directory = new File(sd.getAbsolutePath());
+                //create directory if not exist
+                if (!directory.isDirectory()) {
+                    directory.mkdirs();
+                }
+                try {
+
+                    //file path
+                    File file = new File(directory, csvFile);
+                    WorkbookSettings wbSettings = new WorkbookSettings();
+                    wbSettings.setLocale(new Locale("en", "EN"));
+                    WritableWorkbook workbook;
+                    workbook = Workbook.createWorkbook(file, wbSettings);
+                    //Excel sheet name. 0 represents first sheet
+                    WritableSheet sheet = workbook.createSheet("userList", 0);
+
+                    sheet.addCell(new Label(0, 0, "Id")); // column and row
+                    sheet.addCell(new Label(1, 0, "Name"));
+                    sheet.addCell(new Label(2, 0, "Doctor Name"));
+                    sheet.addCell(new Label(3, 0, "Date"));
+                    sheet.addCell(new Label(4, 0, "Disease"));
+
+                    for (int i = 0; i<leedsModelArrayList.size(); i++) {
+                        String id = leedsModelArrayList.get(i).getPatientId();
+                        String name = leedsModelArrayList.get(i).getPname();
+                        String doctor = leedsModelArrayList.get(i).getCdoctor();
+                        String date = (String) Utility.convertMilliSecondsToFormatedDate(leedsModelArrayList.get(i).getCreatedDateTimeLong(), GLOBAL_DATE_FORMATE);
+                        String disease = leedsModelArrayList.get(i).getDiagnosys();
+
+                        sheet.addCell(new Label(0, i+1, id));
+                        sheet.addCell(new Label(1, i+1, name));
+                        sheet.addCell(new Label(2, i+1, doctor));
+                        sheet.addCell(new Label(3, i+1, date));
+                        sheet.addCell(new Label(4, i+1, disease));
+                    }
+
+                    workbook.write();
+                    workbook.close();
+                    Toast.makeText(getContext(), "Data Exported in a Excel Sheet", Toast.LENGTH_SHORT).show();
+
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
 
 
         return view;
@@ -209,6 +272,7 @@ public class Fragment_Reports extends Fragment
                 ArrayList<Reportmodel> leedsModelArrayList = new ArrayList<>();
                 leedsModelArrayList.addAll(reportmodels);
                 reportadapter.reload(leedsModelArrayList);
+                catalogRecycler.setAdapter(reportadapter);
             }
         }
     }

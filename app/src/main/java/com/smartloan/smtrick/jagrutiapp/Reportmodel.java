@@ -2,16 +2,17 @@ package com.smartloan.smtrick.jagrutiapp;
 
 import com.google.firebase.database.ServerValue;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Reportmodel {
+public class Reportmodel implements Serializable {
 
     public String pname,cdoctor,address,religion,ses,age,dob,gender,marrialstatus,occupation,education,ruralarban,residencial,
             office,howcontact,diagnosys,dsmvcode,reviseddiagnosys,informant,odp,gexamination,cns,cvs,
             pulse,bp,rs,pa,imark,formulation,managementplan,investigation,refralwithreasons,rehabitationneed,persnality,
             socialsupport,pasthistory,familyhistory,devhistoryandchildhood,occupationalhistory,appearanceandbehaviour,
-            speechmoodeffect,insightgudgementmemory;
+            speechmoodeffect,insightgudgementmemory,patientId,leedId;
     public Long createdDateTime;
 
     public Reportmodel() {
@@ -64,7 +65,10 @@ public class Reportmodel {
         this.persnality = persnality;
         this.socialsupport = socialsupport;
         this.pulse = pulse;
-        this.bp = bp; }
+        this.bp = bp;
+        this.patientId = patientId;
+        this.leedId = leedId;
+    }
 
 
 
@@ -394,16 +398,21 @@ public class Reportmodel {
         this.address = address;
     }
 
+    public String getPatientId() {
+        return patientId;
+    }
 
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
 
+    public String getLeedId() {
+        return leedId;
+    }
 
-
-
-
-
-
-
-
+    public void setLeedId(String leedId) {
+        this.leedId = leedId;
+    }
 
     public static ArrayList<Reportmodel> getLeeds() {
         ArrayList<Reportmodel> leedsModelArrayList = new ArrayList<>();

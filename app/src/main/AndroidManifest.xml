@@ -44,9 +44,15 @@
             android:label="@string/title_activity_reset_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.smartloan.smtrick.jagrutiapp.ShowImagesActivity" />
+
         <activity android:name="com.smartloan.smtrick.jagrutiapp.SubCatalogActivity" />
+
         <activity android:name="com.smartloan.smtrick.jagrutiapp.UserDetailsActivity" />
+
         <activity android:name="com.smartloan.smtrick.jagrutiapp.Add_Updatelead__bankresult_Activity" />
+
+        <activity android:name="com.smartloan.smtrick.jagrutiapp.View_Patient_Report_Activity" />
+
         <activity
             android:name="com.smartloan.smtrick.jagrutiapp.sharedtransitionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
