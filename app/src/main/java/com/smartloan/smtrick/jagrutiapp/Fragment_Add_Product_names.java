@@ -309,10 +309,13 @@ public class Fragment_Add_Product_names extends Fragment implements View.OnClick
                     return;
                 }
 
-                PatientVO patientaddforms = new PatientVO(name,cdoctor,address,setreligion,setses,setage,setdob,setrecidencial,setoffice,setdignosys,setdsmvcode,setreviseddignosis,setinformant
-                        ,setodp,setgeneralexamination,setcns,setcvs,setpulse,setbp,setrs,setpa,setidentificationmark,setformulation,setmanagementplan,
-                        setinvestigation,setrefwithresons,setrehabitationneed,setpersnality,setsocialsupport,setpasthistory,setfamilyhistory,setdevchild,
-                        setoccupationalhistory,setpsmhistory,setapearanceandbehaviour,setspeechmoodeffects,setinsidejudmentmemory,patientId,leedId);
+                PatientVO patientaddforms = new PatientVO(name,cdoctor,address,setreligion,setses,setage,setdob,setrecidencial,setoffice,
+                        setdignosys,setdsmvcode,setreviseddignosis,setinformant,setodp,setgeneralexamination,setcns,setcvs,setpulse,setbp,
+                        setrs,setpa,setidentificationmark,setformulation,setmanagementplan, setinvestigation,setrefwithresons,
+                        setrehabitationneed,setpersnality,setsocialsupport,setpasthistory,setfamilyhistory,setdevchild,
+                        setoccupationalhistory,setpsmhistory,setapearanceandbehaviour,setspeechmoodeffects,setinsidejudmentmemory,
+                        patientId,leedId,ssexspinner,sspinnermaritalstatus,sspinneroccupation,sspinnereducation,sspinneraddress,
+                        sspinnerrefferral);
 
 //                String uploadId = mDatabaseRefpatient.push().getKey();
                 mDatabaseRefpatient.child(leedId).setValue(patientaddforms);

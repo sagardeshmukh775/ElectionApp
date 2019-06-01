@@ -13,7 +13,7 @@ public class PatientVO implements Serializable {
     public String pname,cdoctor,address,religion,ses,age,dob,gender,marrialstatus,occupation,education,ruralarban,residencial,
             office,howcontact,diagnosys,dsmvcode,reviseddiagnosys,informant,odp,gexamination,cns,cvs,
             pulse,bp,rs,pa,imark,formulation,managementplan,investigation,refralwithreasons,rehabitationneed,persnality,
-            socialsupport,pasthistory,familyhistory,devhistoryandchildhood,occupationalhistory,appearanceandbehaviour,
+            socialsupport,pasthistory,familyhistory,devhistoryandchildhood,occupationalhistory,psmhistory,appearanceandbehaviour,
             speechmoodeffect,insightgudgementmemory,patientId,leedId;
     public Long createdDateTime;
 
@@ -23,11 +23,15 @@ public class PatientVO implements Serializable {
 
     public PatientVO(int id) {}
 
-    public PatientVO(String pname, String cdoctor, String address, String setreligion, String setses,String setage,String setdob,String setrecidencial,String setoffice, String setdignosys, String setdsmvcode, String setreviseddignosis,String setinformant
-            ,String setodp,String setgeneralexamination,String setcns,String setcvs,String setpulse,String setbp,String setrs,String setpa,String setidentificationmark,String setformulation,String setmanagementplan,
-                     String setinvestigation,String setrefwithresons,String setrehabitationneed,String setpersnality,String setsocialsupport,String setpasthistory,String setfamilyhistory,String setdevchild,
-                     String setoccupationalhistory,String setpsmhistory,String setapearanceandbehaviour,String setspeechmoodeffects,String setinsidejudmentmemory,String patientId,
-                     String leedId) {
+    public PatientVO(String pname, String cdoctor, String address, String setreligion, String setses,String setage,String setdob,
+                     String setrecidencial,String setoffice, String setdignosys, String setdsmvcode, String setreviseddignosis,
+                     String setinformant,String setodp,String setgeneralexamination,String setcns,String setcvs,String setpulse,
+                     String setbp,String setrs,String setpa,String setidentificationmark,String setformulation,String setmanagementplan,
+                     String setinvestigation,String setrefwithresons,String setrehabitationneed,String setpersnality,
+                     String setsocialsupport,String setpasthistory,String setfamilyhistory,String setdevchild,
+                     String setoccupationalhistory,String setpsmhistory,String setapearanceandbehaviour,String setspeechmoodeffects,
+                     String setinsidejudmentmemory,String patientId,String leedId,String gender,String marrialstatus,String occupation,
+                     String education,String howcontact,String referel) {
 
         this.pname = pname;
         this.cdoctor = cdoctor;
@@ -42,7 +46,7 @@ public class PatientVO implements Serializable {
         this.occupation = occupation;
         this.education = education;
         this.ruralarban = setrecidencial;
-        this.residencial = setrecidencial;
+        this.residencial = referel;
         this.office = setoffice;
         this.howcontact = howcontact;
         this.rs = setrs;
@@ -70,6 +74,15 @@ public class PatientVO implements Serializable {
         this.bp = setbp;
         this.patientId = patientId;
         this.leedId = leedId;
+
+        this.imark = setidentificationmark;
+        this.formulation = setformulation;
+        this.managementplan = setmanagementplan;
+        this.investigation = setinvestigation;
+        this.psmhistory = setpsmhistory;
+
+
+
     }
 
 
@@ -414,6 +427,46 @@ public class PatientVO implements Serializable {
 
     public void setLeedId(String leedId) {
         this.leedId = leedId;
+    }
+
+    public String getImark() {
+        return imark;
+    }
+
+    public void setImark(String imark) {
+        this.imark = imark;
+    }
+
+    public String getFormulation() {
+        return formulation;
+    }
+
+    public void setFormulation(String formulation) {
+        this.formulation = formulation;
+    }
+
+    public String getManagementplan() {
+        return managementplan;
+    }
+
+    public void setManagementplan(String managementplan) {
+        this.managementplan = managementplan;
+    }
+
+    public String getInvestigation() {
+        return investigation;
+    }
+
+    public void setInvestigation(String investigation) {
+        this.investigation = investigation;
+    }
+
+    public String getPsmhistory() {
+        return psmhistory;
+    }
+
+    public void setPsmhistory(String psmhistory) {
+        this.psmhistory = psmhistory;
     }
 
     public static ArrayList<Reportmodel> getLeeds() {

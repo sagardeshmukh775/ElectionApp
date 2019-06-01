@@ -8,23 +8,21 @@ import java.util.Map;
 
 public class Reportmodel implements Serializable {
 
-    public String pname,cdoctor,address,religion,ses,age,dob,gender,marrialstatus,occupation,education,ruralarban,residencial,
-            office,howcontact,diagnosys,dsmvcode,reviseddiagnosys,informant,odp,gexamination,cns,cvs,
-            pulse,bp,rs,pa,imark,formulation,managementplan,investigation,refralwithreasons,rehabitationneed,persnality,
-            socialsupport,pasthistory,familyhistory,devhistoryandchildhood,occupationalhistory,appearanceandbehaviour,
-            speechmoodeffect,insightgudgementmemory,patientId,leedId;
+    public String pname, cdoctor, address, religion, ses, age, dob, gender, marrialstatus, occupation, education, ruralarban, residencial,
+            office, howcontact, diagnosys, dsmvcode, reviseddiagnosys, informant, odp, gexamination, cns, cvs,
+            pulse, bp, rs, pa, imark, formulation, managementplan, investigation, refralwithreasons, rehabitationneed, persnality,
+            socialsupport, pasthistory, familyhistory, devhistoryandchildhood, occupationalhistory,psmhistory, appearanceandbehaviour,
+            speechmoodeffect, insightgudgementmemory, patientId, leedId;
     public Long createdDateTime;
 
     public Reportmodel() {
 
     }
 
-    public Reportmodel(int id) {}
+    public Reportmodel(int id) {
+    }
 
     public Reportmodel(String pname, String cdoctor, String address) {
-
-
-
 
 
         this.pname = pname;
@@ -60,6 +58,7 @@ public class Reportmodel implements Serializable {
         this.familyhistory = familyhistory;
         this.devhistoryandchildhood = devhistoryandchildhood;
         this.occupationalhistory = occupationalhistory;
+        this.psmhistory = psmhistory;
         this.refralwithreasons = refralwithreasons;
         this.rehabitationneed = rehabitationneed;
         this.persnality = persnality;
@@ -68,8 +67,12 @@ public class Reportmodel implements Serializable {
         this.bp = bp;
         this.patientId = patientId;
         this.leedId = leedId;
-    }
 
+        this.imark = imark;
+        this.formulation = formulation;
+        this.managementplan = managementplan;
+        this.investigation = investigation;
+    }
 
 
     public String getAppearanceandbehaviour() {
@@ -131,6 +134,14 @@ public class Reportmodel implements Serializable {
         this.occupationalhistory = occupationalhistory;
     }
 
+    public String getPsmhistory() {
+        return psmhistory;
+    }
+
+    public void setPsmhistory(String psmhistory) {
+        this.psmhistory = psmhistory;
+    }
+
     public String getRefralwithreasons() {
         return refralwithreasons;
     }
@@ -138,6 +149,7 @@ public class Reportmodel implements Serializable {
     public void setRefralwithreasons(String refralwithreasons) {
         this.refralwithreasons = refralwithreasons;
     }
+
     public String getRehabitationneed() {
         return rehabitationneed;
     }
@@ -170,6 +182,7 @@ public class Reportmodel implements Serializable {
     public void setPulse(String pulse) {
         this.pulse = pulse;
     }
+
     public String getBp() {
         return bp;
     }
@@ -202,6 +215,7 @@ public class Reportmodel implements Serializable {
     public void setOdp(String odp) {
         this.odp = odp;
     }
+
     public String getGexamination() {
         return gexamination;
     }
@@ -310,14 +324,13 @@ public class Reportmodel implements Serializable {
     }
 
 
-
     public String getOccupation() {
         return occupation;
     }
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
-}
+    }
 
 
     public String getEducation() {
@@ -327,7 +340,6 @@ public class Reportmodel implements Serializable {
     public void setEducation(String education) {
         this.education = education;
     }
-
 
 
     public String getRuralarban() {
@@ -345,6 +357,7 @@ public class Reportmodel implements Serializable {
     public void setResidencial(String residencial) {
         this.residencial = residencial;
     }
+
     public String getOffice() {
         return office;
     }
@@ -372,6 +385,7 @@ public class Reportmodel implements Serializable {
     public void setCreatedDateTime(Long createdDateTime) {
         this.createdDateTime = (Long) createdDateTime;
     }
+
     public String getPname() {
         return pname;
     }
@@ -387,7 +401,6 @@ public class Reportmodel implements Serializable {
     public void setCdoctor(String cdoctor) {
         this.cdoctor = cdoctor;
     }
-
 
 
     public String getAddress() {
@@ -412,6 +425,38 @@ public class Reportmodel implements Serializable {
 
     public void setLeedId(String leedId) {
         this.leedId = leedId;
+    }
+
+    public String getImark() {
+        return imark;
+    }
+
+    public void setImark(String imark) {
+        this.imark = imark;
+    }
+
+    public String getFormulation() {
+        return formulation;
+    }
+
+    public void setFormulation(String formulation) {
+        this.formulation = formulation;
+    }
+
+    public String getManagementplan() {
+        return managementplan;
+    }
+
+    public void setManagementplan(String managementplan) {
+        this.managementplan = managementplan;
+    }
+
+    public String getInvestigation() {
+        return investigation;
+    }
+
+    public void setInvestigation(String investigation) {
+        this.investigation = investigation;
     }
 
     public static ArrayList<Reportmodel> getLeeds() {

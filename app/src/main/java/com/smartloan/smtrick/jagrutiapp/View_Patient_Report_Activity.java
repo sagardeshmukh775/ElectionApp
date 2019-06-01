@@ -1,6 +1,7 @@
 package com.smartloan.smtrick.jagrutiapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -138,7 +139,7 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
         spinneraddress = (TextView) findViewById(R.id.address);
         spinnerrefferral = (TextView) findViewById(R.id.sourceofrefferal);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
 //        mainproductlist = new ArrayList<>();
@@ -289,22 +290,53 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
             String setbp = invoice.getBp();
             String setrs = invoice.getRs();
             String setpa = invoice.getPa();
-            //String setidentificationmark = invoice.getim();
-            //String setformulation = invoice.getf();
-            // String setmanagementplan = invoice.getm();
-            //String setinvestigation = invoice.geti();
+            String setidentificationmark = invoice.getImark();
+            String setformulation = invoice.getFormulation();
+            String setmanagementplan = invoice.getManagementplan();
+            String setinvestigation = invoice.getInvestigation();
             String setrefwithresons = invoice.getRefralwithreasons();
             String setrehabitationneed = invoice.getRehabitationneed();
             String setpersnality = invoice.getPersnality();
             String setsocialsupport = invoice.getSocialsupport();
-            // String setpasthistory = getP
+            String setpasthistory = invoice.getPasthistory();
             String setfamilyhistory = invoice.getFamilyhistory();
             String setdevchild = invoice.getDevhistoryandchildhood();
             String setoccupationalhistory = invoice.getOccupationalhistory();
-            //String setpsmhistory = invoice.getP();
+            String setpsmhistory = invoice.getPsmhistory();
             String setapearanceandbehaviour = invoice.getAppearanceandbehaviour();
             String setspeechmoodeffects = invoice.getSpeechmoodeffect();
             String setinsidejudmentmemory = invoice.getInsightgudgementmemory();
+            String gender = invoice.getGender();
+            String occupation = invoice.getOccupation();
+            String education = invoice.getEducation();
+            String ruralurban = invoice.getHowcontact();
+            String referal = invoice.getResidencial();
+            String maritalstatus = invoice.getMarrialstatus();
+
+
+            if (gender != null) {
+                sexspinner.setText(gender);
+            }
+
+            if (occupation != null) {
+                spinnermaritalstatus.setText(occupation);
+            }
+
+            if (education != null) {
+                spinneroccupation.setText(education);
+            }
+
+            if (ruralurban != null) {
+                spinnereducation.setText(ruralurban);
+            }
+
+            if (referal != null) {
+                spinneraddress.setText(referal);
+            }
+
+            if (maritalstatus != null) {
+                spinnerrefferral.setText(maritalstatus);
+            }
 
 
             if (name != null) {
@@ -380,6 +412,20 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
             if (setpa != null) {
                 etpa.setText(setpa);
             }
+
+            if (setidentificationmark != null) {
+                etidentificationmark.setText(setidentificationmark);
+            }
+            if (setformulation != null) {
+                etformulation.setText(setformulation);
+            }
+            if (setmanagementplan != null) {
+                etmanagementplan.setText(setmanagementplan);
+            }
+            if (setinvestigation != null) {
+                etinvestigation.setText(setinvestigation);
+            }
+
             if (setrefwithresons != null) {
                 etrefwithresons.setText(setrefwithresons);
             }
@@ -392,6 +438,9 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
             if (setsocialsupport != null) {
                 etsocialsupport.setText(setsocialsupport);
             }
+            if (setpasthistory != null) {
+                etpasthistory.setText(setpasthistory);
+            }
             if (setfamilyhistory != null) {
                 etfamilyhistory.setText(setfamilyhistory);
             }
@@ -400,6 +449,9 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
             }
             if (setoccupationalhistory != null) {
                 etoccupationalhistory.setText(setoccupationalhistory);
+            }
+            if (setpsmhistory != null) {
+                etpsmhistory.setText(setpsmhistory);
             }
             if (setapearanceandbehaviour != null) {
                 etapearanceandbehaviour.setText(setapearanceandbehaviour);
@@ -514,11 +566,11 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
                 String bp = invoice.getBp();
                 String rs = invoice.getRs();
                 String pa = invoice.getPa();
-//                String imark = invoice.geti();
-//                String formulation = invoice.getf();
+                String imark = invoice.getImark();
+                String formulation = invoice.getFormulation();
                 String diagnosisphy = invoice.getDiagnosys();
-//                String management = invoice.getSes();
-//                String investigations = invoice.getPname();
+                String management = invoice.getManagementplan();
+                String investigations = invoice.getInvestigation();
                 String refwithreason = invoice.getRefralwithreasons();
                 String rehabilationeed = invoice.getRehabitationneed();
                 String persnality = invoice.getPersnality();
@@ -530,9 +582,9 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
 //                String personalhistory = invoice.getPasthistory();
                 String appearenceandbehaviour = invoice.getAppearanceandbehaviour();
                 String speechmood = invoice.getSpeechmoodeffect();
-//                String memorycondition = invoice.getMarrialstatus();
+                String memorycondition = invoice.getInsightgudgementmemory();
 
-                sheet.addCell(new Label(1, 0,doctor ));
+                sheet.addCell(new Label(1, 0, doctor));
                 sheet.addCell(new Label(1, 1, name));
                 sheet.addCell(new Label(1, 2, religion));
                 sheet.addCell(new Label(1, 3, ses));
@@ -559,11 +611,11 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
                 sheet.addCell(new Label(1, 23, bp));
                 sheet.addCell(new Label(1, 24, rs));
                 sheet.addCell(new Label(1, 25, pa));
-//                sheet.addCell(new Label(1, 26, imark));
-//                sheet.addCell(new Label(1, 27, formulation));
+                sheet.addCell(new Label(1, 26, imark));
+                sheet.addCell(new Label(1, 27, formulation));
                 sheet.addCell(new Label(1, 28, diagnosisphy));
-//                sheet.addCell(new Label(1, 29, management));
-//                sheet.addCell(new Label(1, 30, investigation));
+                sheet.addCell(new Label(1, 29, management));
+                sheet.addCell(new Label(1, 30, investigations));
                 sheet.addCell(new Label(1, 31, refwithreason));
                 sheet.addCell(new Label(1, 32, rehabilationeed));
                 sheet.addCell(new Label(1, 33, persnality));
@@ -575,13 +627,18 @@ public class View_Patient_Report_Activity extends AppCompatActivity implements V
 //                sheet.addCell(new Label(1, 39, personalhistory));
                 sheet.addCell(new Label(1, 40, appearenceandbehaviour));
                 sheet.addCell(new Label(1, 41, speechmood));
-//                sheet.addCell(new Label(1, 42, memorycondition));
+                sheet.addCell(new Label(1, 42, memorycondition));
 
 //                }
 
                 workbook.write();
                 workbook.close();
                 Toast.makeText(View_Patient_Report_Activity.this, "Data Exported in a Excel Sheet", Toast.LENGTH_SHORT).show();
+
+                Intent myIntent = new Intent(Intent.ACTION_VIEW);
+                myIntent.setData(Uri.fromFile(new File(csvFile)));
+                Intent j = Intent.createChooser(myIntent, "Choose an application to open with:");
+                startActivity(j);
 
             } catch (Exception e) {
                 e.printStackTrace();

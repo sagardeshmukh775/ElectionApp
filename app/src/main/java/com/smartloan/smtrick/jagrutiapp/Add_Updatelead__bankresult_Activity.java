@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -59,11 +60,13 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
             etpasthistory, etfamilyhistory, etdevchild, etoccupationalhistory, etpsmhistory, etapearanceandbehaviour,
             etspeechmoodeffects, etinsidejudmentmemory;
 
-    private String Sreligion, Sses, Sage, Sdob, Srecidential, Soffice, Sdignosys, Sdsmvcode, Sreviseddignosys,
+    private String Sreligion, Sses, Sage, Sdob,Saddress, Srecidential, Soffice, Sdignosys, Sdsmvcode, Sreviseddignosys,
             Sinformant, Sodp, Sgeneralexamination, Scns, Scvs, Spulse, Sbp, Srs, Spa, Sidentificationalmark,
             Sformulation, Smanagementplan, Sinvestigation, Srefwithresons, Srehabitetionneed, Spersnality, Ssocialsupport,
             Spasthistory, Sfamilyhistory, Sdevchild, Soccupationalhistory, Spsmhistory, Sapearenceandbehaviour,
             Sspeechmodeffects, Sinsidejudmentmemory;
+
+    String Sgender, SmaritalStatus, Sprofation, Seducation, Surbanrural, Sreferal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,7 +204,7 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
 
         try {
 
-            ArrayAdapter<String> mainproadapter = new ArrayAdapter<String>(getApplicationContext(),
+            ArrayAdapter<String> mainproadapter = new ArrayAdapter<String>(getBaseContext(),
                     android.R.layout.simple_spinner_item, listmalefemale);
 
             mainproadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -209,7 +212,7 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
 
 ////
 
-            ArrayAdapter<String> maritalstatus = new ArrayAdapter<String>(getApplicationContext(),
+            ArrayAdapter<String> maritalstatus = new ArrayAdapter<String>(getBaseContext(),
                     android.R.layout.simple_spinner_item, listmaritalstatus);
 
             maritalstatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -217,26 +220,26 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
 
 ///
 
-            ArrayAdapter<String> occupation = new ArrayAdapter<String>(getApplicationContext(),
+            ArrayAdapter<String> occupation = new ArrayAdapter<String>(getBaseContext(),
                     android.R.layout.simple_spinner_item, listoccupation);
 
             occupation.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinneroccupation.setAdapter(occupation);
 //
 
-            ArrayAdapter<String> education = new ArrayAdapter<String>(getApplicationContext(),
+            ArrayAdapter<String> education = new ArrayAdapter<String>(getBaseContext(),
                     android.R.layout.simple_spinner_item, listeducation);
 
             education.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnereducation.setAdapter(education);
 //
-            ArrayAdapter<String> address = new ArrayAdapter<String>(getApplicationContext(),
+            ArrayAdapter<String> address = new ArrayAdapter<String>(getBaseContext(),
                     android.R.layout.simple_spinner_item, listaddress);
 
             address.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinneraddress.setAdapter(address);
             //
-            ArrayAdapter<String> refferal = new ArrayAdapter<String>(getApplicationContext(),
+            ArrayAdapter<String> refferal = new ArrayAdapter<String>(getBaseContext(),
                     android.R.layout.simple_spinner_item, listrefferal);
 
             refferal.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -275,22 +278,60 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
             String setbp = invoice.getBp();
             String setrs = invoice.getRs();
             String setpa = invoice.getPa();
-            //String setidentificationmark = invoice.getim();
-            //String setformulation = invoice.getf();
-            // String setmanagementplan = invoice.getm();
-            //String setinvestigation = invoice.geti();
+            String setidentificationmark = invoice.getImark();
+            String setformulation = invoice.getFormulation();
+            String setmanagementplan = invoice.getManagementplan();
+            String setinvestigation = invoice.getInvestigation();
             String setrefwithresons = invoice.getRefralwithreasons();
             String setrehabitationneed = invoice.getRehabitationneed();
             String setpersnality = invoice.getPersnality();
             String setsocialsupport = invoice.getSocialsupport();
-            // String setpasthistory = getP
+            String setpasthistory = invoice.getPasthistory();
             String setfamilyhistory = invoice.getFamilyhistory();
             String setdevchild = invoice.getDevhistoryandchildhood();
             String setoccupationalhistory = invoice.getOccupationalhistory();
-            //String setpsmhistory = invoice.getP();
+            String setpsmhistory = invoice.getPsmhistory();
             String setapearanceandbehaviour = invoice.getAppearanceandbehaviour();
             String setspeechmoodeffects = invoice.getSpeechmoodeffect();
             String setinsidejudmentmemory = invoice.getInsightgudgementmemory();
+
+            String gender = invoice.getGender();
+            String maritalstatus = invoice.getMarrialstatus();
+            String profession = invoice.getOccupation();
+            String education = invoice.getEducation();
+            String urbalrural = invoice.getHowcontact();
+            String referal = invoice.getResidencial();
+
+            if (gender != null) {
+                ArrayAdapter myAdap = (ArrayAdapter) sexspinner.getAdapter();
+                int spinnerPosition = myAdap.getPosition(gender);
+                sexspinner.setSelection(spinnerPosition);
+            }
+            if (maritalstatus != null) {
+                ArrayAdapter myAdap = (ArrayAdapter) spinnermaritalstatus.getAdapter();
+                int spinnerPosition = myAdap.getPosition(maritalstatus);
+                spinnermaritalstatus.setSelection(spinnerPosition);
+            }
+            if (profession != null) {
+                ArrayAdapter myAdap = (ArrayAdapter) spinneroccupation.getAdapter();
+                int spinnerPosition = myAdap.getPosition(profession);
+                spinneroccupation.setSelection(spinnerPosition);
+            }
+            if (education != null) {
+                ArrayAdapter myAdap = (ArrayAdapter) spinnereducation.getAdapter();
+                int spinnerPosition = myAdap.getPosition(education);
+                spinnereducation.setSelection(spinnerPosition);
+            }
+            if (urbalrural != null) {
+                ArrayAdapter myAdap = (ArrayAdapter) spinneraddress.getAdapter();
+                int spinnerPosition = myAdap.getPosition(urbalrural);
+                spinneraddress.setSelection(spinnerPosition);
+            }
+            if (referal != null) {
+                ArrayAdapter myAdap = (ArrayAdapter) spinnerrefferral.getAdapter();
+                int spinnerPosition = myAdap.getPosition(referal);
+                spinnerrefferral.setSelection(spinnerPosition);
+            }
 
 
             if (name != null) {
@@ -366,6 +407,20 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
             if (setpa != null) {
                 etpa.setText(setpa);
             }
+
+            if (setidentificationmark != null) {
+                etidentificationmark.setText(setidentificationmark);
+            }
+            if (setformulation != null) {
+                etformulation.setText(setformulation);
+            }
+            if (setmanagementplan != null) {
+                etmanagementplan.setText(setmanagementplan);
+            }
+            if (setinvestigation != null) {
+                etinvestigation.setText(setinvestigation);
+            }
+
             if (setrefwithresons != null) {
                 etrefwithresons.setText(setrefwithresons);
             }
@@ -378,6 +433,11 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
             if (setsocialsupport != null) {
                 etsocialsupport.setText(setsocialsupport);
             }
+
+            if (setpasthistory != null) {
+                etpasthistory.setText(setpasthistory);
+            }
+
             if (setfamilyhistory != null) {
                 etfamilyhistory.setText(setfamilyhistory);
             }
@@ -387,6 +447,10 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
             if (setoccupationalhistory != null) {
                 etoccupationalhistory.setText(setoccupationalhistory);
             }
+            if (setpsmhistory != null) {
+                etpsmhistory.setText(setpsmhistory);
+            }
+
             if (setapearanceandbehaviour != null) {
                 etapearanceandbehaviour.setText(setapearanceandbehaviour);
             }
@@ -397,7 +461,9 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
                 etinsidejudmentmemory.setText(setinsidejudmentmemory);
             }
 
+
         } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -416,7 +482,8 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
         Sses = etses.getText().toString();
         Sage = etage.getText().toString();
         Sdob = etdob.getText().toString();
-        Srecidential = etrecidencial.getText().toString();
+        Saddress = etrecidencial.getText().toString();
+        Srecidential = spinneraddress.getSelectedItem().toString();
         Soffice = etoffice.getText().toString();
         Sdignosys = etdignosys.getText().toString();
         Sdsmvcode = etdsmvcode.getText().toString();
@@ -430,22 +497,29 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
         Sbp = etbp.getText().toString();
         Srs = etrs.getText().toString();
         Spa = etpa.getText().toString();
-//        Sidentificationalmark = etidentificationmark.getText().toString();
-//        Sformulation = etformulation.getText().toString();
-//        Smanagementplan = etmanagementplan.getText().toString();
-//        Sinvestigation = etinvestigation.getText().toString();
+        Sidentificationalmark = etidentificationmark.getText().toString();
+        Sformulation = etformulation.getText().toString();
+        Smanagementplan = etmanagementplan.getText().toString();
+        Sinvestigation = etinvestigation.getText().toString();
         Srefwithresons = etrefwithresons.getText().toString();
         Srehabitetionneed = etrehabitationneed.getText().toString();
         Spersnality = etpersnality.getText().toString();
         Ssocialsupport = etsocialsupport.getText().toString();
-//        Spasthistory = etpasthistory.getText().toString();
+        Spasthistory = etpasthistory.getText().toString();
         Sfamilyhistory = etfamilyhistory.getText().toString();
         Sdevchild = etdevchild.getText().toString();
         Soccupationalhistory = etoccupationalhistory.getText().toString();
-//        Spsmhistory = etpsmhistory.getText().toString();
+        Spsmhistory = etpsmhistory.getText().toString();
         Sapearenceandbehaviour = etapearanceandbehaviour.getText().toString();
         Sspeechmodeffects = etspeechmoodeffects.getText().toString();
         Sinsidejudmentmemory = etinsidejudmentmemory.getText().toString();
+
+        Sgender = sexspinner.getSelectedItem().toString();
+        SmaritalStatus = spinnermaritalstatus.getSelectedItem().toString();
+        Sprofation = spinneroccupation.getSelectedItem().toString();
+        Seducation = spinnereducation.getSelectedItem().toString();
+        Surbanrural = spinneraddress.getSelectedItem().toString();
+        Sreferal = spinnerrefferral.getSelectedItem().toString();
 
         updateData();
 
@@ -457,7 +531,7 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
         invoice.setSes(Sses);
         invoice.setAge(Sage);
         invoice.setDob(Sdob);
-        invoice.setAddress(Srecidential);
+        invoice.setAddress(Saddress);
         invoice.setOffice(Soffice);
         invoice.setDiagnosys(Sdignosys);
         invoice.setDsmvcode(Sdsmvcode);
@@ -471,10 +545,10 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
         invoice.setBp(Sbp);
         invoice.setRs(Srs);
         invoice.setPa(Spa);
-//        invoice.setReligion(Sreligion);
-//        invoice.setReligion(Sreligion);
-//        invoice.setReligion(Sreligion);
-//        invoice.setReligion(Sreligion);
+        invoice.setImark(Sidentificationalmark);
+        invoice.setFormulation(Sformulation);
+        invoice.setManagementplan(Smanagementplan);
+        invoice.setInvestigation(Sinvestigation);
         invoice.setRefralwithreasons(Srefwithresons);
         invoice.setRehabitationneed(Srehabitetionneed);
         invoice.setPersnality(Spersnality);
@@ -483,18 +557,22 @@ public class Add_Updatelead__bankresult_Activity extends AppCompatActivity imple
         invoice.setFamilyhistory(Sfamilyhistory);
         invoice.setDevhistoryandchildhood(Sdevchild);
         invoice.setOccupationalhistory(Soccupationalhistory);
-//        invoice.setReligion(Sreligion);
+        invoice.setPsmhistory(Spsmhistory);
         invoice.setAppearanceandbehaviour(Sapearenceandbehaviour);
         invoice.setSpeechmoodeffect(Sspeechmodeffects);
         invoice.setInsightgudgementmemory(Sinsidejudmentmemory);
+        invoice.setGender(Sgender);
+        invoice.setMarrialstatus(SmaritalStatus);
+        invoice.setOccupation(Sprofation);
+        invoice.setEducation(Seducation);
+        invoice.setResidencial(Srecidential);
+        invoice.setHowcontact(Srecidential);
 
-//        updateLeed(invoice);
+
+
         updateLeed(invoice.getLeedId(), invoice.getLeedStatusMap());
     }
 
-//    private void updateLeed(PatientVO invoice) {
-//
-//    }
 
     private void updateLeed(String leedId, Map leedsMap) {
 

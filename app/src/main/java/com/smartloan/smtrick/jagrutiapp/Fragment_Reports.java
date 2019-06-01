@@ -1,6 +1,8 @@
 package com.smartloan.smtrick.jagrutiapp;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -158,6 +160,11 @@ public class Fragment_Reports extends Fragment
                     workbook.write();
                     workbook.close();
                     Toast.makeText(getContext(), "Data Exported in a Excel Sheet", Toast.LENGTH_SHORT).show();
+
+                    Intent myIntent = new Intent(Intent.ACTION_VIEW);
+                    myIntent.setData(Uri.fromFile(new File(csvFile)));
+                    Intent j = Intent.createChooser(myIntent, "Choose an application to open with:");
+                    startActivity(j);
 
                 } catch(Exception e){
                     e.printStackTrace();
