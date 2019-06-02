@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:text="Customer Name:"
+            android:text="Doctor Name:"
             android:layout_weight="60"/>
 
         <TextView
@@ -68,7 +68,7 @@
             android:id="@+id/user_store"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Store Name:"
+            android:text="Designation:"
             android:textSize="15dp"
             android:layout_weight="60"/>
         <TextView
@@ -107,54 +107,74 @@
 
     </LinearLayout>
 
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:padding="4dp"-->
+        <!--android:weightSum="100">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/user_city"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="15dp"-->
+            <!--android:text="City:"-->
+            <!--android:layout_weight="60"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/user_city1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_weight="40"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:padding="4dp"-->
+        <!--android:weightSum="100">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/user_area"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="15dp"-->
+            <!--android:text="Area:"-->
+            <!--android:layout_weight="60"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/user_area1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_weight="40"/>-->
+
+    <!--</LinearLayout>-->
+
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/layoutbuttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="4dp"
+        android:layout_below="@+id/mainlayout"
+        android:gravity="center_horizontal"
         android:weightSum="100">
 
-        <TextView
-            android:id="@+id/user_city"
+        <Button
+            android:id="@+id/dialogButtonaccept"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:text="City:"
-            android:layout_weight="60"/>
-        <TextView
-            android:id="@+id/user_city1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_weight="40"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:padding="4dp"
-        android:weightSum="100">
-
-        <TextView
-            android:id="@+id/user_area"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:text="Area:"
-            android:layout_weight="60"/>
-        <TextView
-            android:id="@+id/user_area1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_weight="40"/>
+            android:background="#808080"
+            android:text="CLOSE"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 

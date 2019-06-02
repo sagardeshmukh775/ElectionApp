@@ -2,21 +2,20 @@ package com.smartloan.smtrick.jagrutiapp;
 
 import java.io.Serializable;
 
-public class Users implements Serializable{
+public class Users implements Serializable {
 
-    public String name, storename, area, city, contact, email;
+    public String name, storename, area, city, contact, email, status;
 
     public Users() {
 
     }
 
-    Users(String name, String storename,String contact, String email) {
+    Users(String name, String storename, String contact, String email, String status) {
         this.name = name;
         this.storename = storename;
-        this.area = area;
-        this.city = city;
         this.contact = contact;
         this.email = email;
+        this.status = status;
     }
 
     public String getName() {
@@ -65,5 +64,13 @@ public class Users implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

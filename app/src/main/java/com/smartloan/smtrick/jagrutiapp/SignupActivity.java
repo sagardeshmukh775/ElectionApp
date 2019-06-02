@@ -69,6 +69,7 @@ public class SignupActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
                 final String dealer = Dealername.getText().toString().trim();
                 final String storename = Storename.getText().toString().trim();
+                final String status = "REQUEST";
 
                 final String contact = userContact.getText().toString().trim();
 
@@ -101,7 +102,7 @@ public class SignupActivity extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
 
-                                                        Users user = new Users(dealer,storename,contact,email);
+                                                        Users user = new Users(dealer,storename,contact,email,status);
                                                         FirebaseDatabase.getInstance().getReference("users")
                                                         .child(auth.getInstance().getCurrentUser().getUid())
                                                                 .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

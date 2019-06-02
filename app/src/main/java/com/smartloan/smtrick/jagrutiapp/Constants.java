@@ -39,6 +39,8 @@ public class Constants {
     public static final DatabaseReference LEEDS_TABLE_REF = DATABASE.getReference("leeds");
 
     public static final DatabaseReference PATIENTS_TABLE_REF = DATABASE.getReference("Patients");
+    public static final DatabaseReference USER_TABLE_REF = DATABASE.getReference("users");
+
 
     public static final String AGENT_PREFIX = "JG-";
 }

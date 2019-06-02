@@ -1,9 +1,13 @@
 package com.smartloan.smtrick.jagrutiapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -56,6 +60,13 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        Boolean per = isStoragePermissionGranted();
+        if (per){
+            //   Toast.makeText(this, "Storage Premission Granted", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Storage Premission Required", Toast.LENGTH_SHORT).show();
+        }
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         //NOTE:  Checks first item in the navigation drawer initially
@@ -73,6 +84,29 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.mainFrame, selectedFragement);
         ft.commit();
+    }
+
+    public boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                //   Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                // Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            //  Log.v(TAG,"Permission is granted");
+            return true;
+        }
     }
 
     private void getCurrentuserdetails() {
@@ -136,6 +170,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.reports) {
             getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
                     new Fragment_Reports()).commit();
+
+        }else if (id == R.id.doctors) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
+                    new Doctors_TabFragment()).commit();
         }
         else if (id == R.id.logout) {
 

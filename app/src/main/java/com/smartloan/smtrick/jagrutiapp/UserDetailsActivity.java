@@ -24,20 +24,21 @@ public class UserDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
         name = (TextView) findViewById(R.id.user_name);
         store = (TextView) findViewById(R.id.user_store1);
         email = (TextView) findViewById(R.id.user_email1);
         mobile = (TextView) findViewById(R.id.user_mobile1);
-        city = (TextView) findViewById(R.id.user_city1);
-        area = (TextView) findViewById(R.id.user_area1);
+//        city = (TextView) findViewById(R.id.user_city1);
+//        area = (TextView) findViewById(R.id.user_area1);
 
-        user = (Users) getIntent().getSerializableExtra("user");
+        user = (Users) getIntent().getSerializableExtra("report");
 
         name.setText(user.getName());
         store.setText(user.getStorename());
         email.setText(user.getEmail());
         mobile.setText(user.getContact());
-        city.setText(user.getCity());
-        area.setText(user.getArea());
+//        city.setText(user.getCity());
+//        area.setText(user.getArea());
     }
 }
