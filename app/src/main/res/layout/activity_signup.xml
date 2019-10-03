@@ -21,11 +21,11 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/doctorname"
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true"
-                android:hint="Doctor Name"
+                android:hint="User Name"
                 android:imeActionId="@+id/login"
                 android:imeOptions="actionUnspecified"
                 android:maxLines="1"
@@ -36,45 +36,45 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <EditText
-                android:id="@+id/designation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusableInTouchMode="true"
-                android:hint="Deignation"
-                android:imeActionId="@+id/login"
-                android:imeOptions="actionUnspecified"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/input_register_bg"
-                />
+            <!--<EditText-->
+                <!--android:id="@+id/designation"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:focusableInTouchMode="true"-->
+                <!--android:hint="Deignation"-->
+                <!--android:imeActionId="@+id/login"-->
+                <!--android:imeOptions="actionUnspecified"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true"-->
+                <!--android:textColor="@color/input_register_bg"-->
+                <!--/>-->
 
-        </android.support.design.widget.TextInputLayout>
+        <!--</android.support.design.widget.TextInputLayout>-->
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <EditText
-                android:id="@+id/contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusableInTouchMode="true"
-                android:hint="Contact"
-                android:imeActionId="@+id/login"
-                android:imeOptions="actionUnspecified"
-                android:inputType="number"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/input_register_bg"
-                />
+            <!--<EditText-->
+                <!--android:id="@+id/contact"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:focusableInTouchMode="true"-->
+                <!--android:hint="Contact"-->
+                <!--android:imeActionId="@+id/login"-->
+                <!--android:imeOptions="actionUnspecified"-->
+                <!--android:inputType="number"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true"-->
+                <!--android:textColor="@color/input_register_bg"-->
+                <!--/>-->
 
-        </android.support.design.widget.TextInputLayout>
+        <!--</android.support.design.widget.TextInputLayout>-->
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"

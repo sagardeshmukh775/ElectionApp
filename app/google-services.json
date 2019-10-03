@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "249052156361",
-    "firebase_url": "https://jagrutiapp.firebaseio.com",
-    "project_id": "jagrutiapp",
-    "storage_bucket": "jagrutiapp.appspot.com"
+    "project_number": "793952281173",
+    "firebase_url": "https://electionapp-199df.firebaseio.com",
+    "project_id": "electionapp-199df",
+    "storage_bucket": "electionapp-199df.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:249052156361:android:544667f196c31591",
+        "mobilesdk_app_id": "1:793952281173:android:10235c85f3e137e2",
         "android_client_info": {
-          "package_name": "com.smartloan.smtrick.jagrutiapp"
+          "package_name": "com.smartloan.smtrick.electionapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "249052156361-kkscigfj1vgok9dr0ed5fmussgs0p00e.apps.googleusercontent.com",
+          "client_id": "793952281173-ua0m8pi022v323r2707htonodmaat5lo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartloan.smtrick.electionapp",
+            "certificate_hash": "c73a204bb4c1b49eac316b439ae1c0be99d7acd2"
+          }
+        },
+        {
+          "client_id": "793952281173-ka2uncuh9to4tcvb389b30voipg3lvjc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAVckStdGWKe5QhN0LNyuNNULS7DJuRbIs"
+          "current_key": "AIzaSyDsBxATbfepWj_UPD3cVWuXF3VqLoxWZcc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "249052156361-kkscigfj1vgok9dr0ed5fmussgs0p00e.apps.googleusercontent.com",
+              "client_id": "793952281173-ka2uncuh9to4tcvb389b30voipg3lvjc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
